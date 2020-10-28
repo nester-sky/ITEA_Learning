@@ -3,7 +3,7 @@
 # слово Fizz, а вместо чисел, кратных пяти — слово Buzz. Если число
 # кратно пятнадцати, то программа должна выводить слово FizzBuzz.
 
-list_numbers = list(range(0, 100))
+list_numbers = list(range(1, 101))
 
 for num in list_numbers:
     if num % 15 == 0:
