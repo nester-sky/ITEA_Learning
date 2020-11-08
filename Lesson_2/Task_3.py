@@ -4,8 +4,9 @@
 # класса методы сложения, вычитания, деления умножения.
 # Перегрузить один любой унарный метод.
 
+
 class Dot:
-    
+
     def __init__(self, x, y, z):
         self.x = x
         self.y = y
@@ -29,7 +30,7 @@ class Dot:
     def set_z(self, value):
         self.z = value
 
-    def __str__ (self):
+    def __str__(self):
         return f'{self.x}, {self.y}, {self.z}'
 
     def __iadd__(self, other):
@@ -37,7 +38,7 @@ class Dot:
         self.y += other.y
         self.z += other.z
         return self
-        
+
     def __isub__(self, other):
         self.x -= other.x
         self.y -= other.y
@@ -49,26 +50,25 @@ class Dot:
         y = self.y + other.y
         z = self.z + other.z
         return Dot(x, y, z)
-        
+
     def __sub__(self, other):
         x = self.x - other.x
         y = self.y - other.y
         z = self.z - other.z
         return Dot(x, y, z)
-        
+
     def __mul__(self, other):
         x = self.x * other.x
         y = self.y * other.y
         z = self.z * other.z
         return Dot(x, y, z)
-        
+
     def __truediv__(self, other):
         x = self.x / other.x
         y = self.y / other.y
         z = self.z / other.z
         return Dot(x, y, z)
 
-print()
 
 dot_1 = Dot(0, 0, 0)
 print(f'Точка 1: {dot_1}')
@@ -76,7 +76,8 @@ print(f'Точка 1: {dot_1}')
 dot_1.set_x(2)
 dot_1.set_y(6)
 dot_1.set_z(10)
-print(f'Set & Get\nТочка 1: {dot_1.get_x()}, {dot_1.get_y()}, {dot_1.get_z()}\n')
+print(f'Set & Get\nТочка 1:'
+      '{dot_1.get_x()}, {dot_1.get_y()}, {dot_1.get_z()}\n')
 
 dot_2 = Dot(1, 3, 2)
 print(f'Точка 2: {dot_2}\n')
