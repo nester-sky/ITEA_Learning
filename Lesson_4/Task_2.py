@@ -29,10 +29,6 @@
 # увидеть всех пользователей нашей системы,
 # дату их регистрации, и их посты.
 
-# ПРОГНОЗ СТРОК
-# СВ 600-700
-# СШ 400-500
-
 import re
 from os import system
 from datetime import datetime
