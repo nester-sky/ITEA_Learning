@@ -55,7 +55,6 @@ class Authorization:
         temp = db['list_all_logins']
         temp.append(login)
         db['list_all_logins'] = temp
-        return None
 
     @OpenShelve(FILE)
     def get_logins(self, db=None):
@@ -66,7 +65,6 @@ class Authorization:
         temp = db['list_all_users']
         temp.append(user)
         db['list_all_users'] = temp
-        return None
 
     @OpenShelve(FILE)
     def get_users(self, db=None):
@@ -76,13 +74,11 @@ class Authorization:
         db['list_all_logins'] = ['admin']
         db['list_all_users'] = [Authorization._SUPER_ADMIN]
         db['list_all_posts'] = []
-        return None
 
     @OpenShelve(FILE)
     def check_shelve(self, db=None):
         if len(db) == 0:
             self.set_default_db(db)
-        return None
 
     def set_current_user(self, user):
         Authorization._current_user = user
