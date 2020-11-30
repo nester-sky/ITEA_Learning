@@ -6,25 +6,15 @@
 class MyDict:
 
     def __init__(self, *args, **kwargs):
-        if not args:
-            self._dict = dict(kwargs)
-        else:
-            self._dict = dict(args)
+        self._dict = kwargs
 
     def __str__(self):
         return str(self._dict)
 
     def __add__(self, other):
-        args = [(k, self._dict[k]) for k in self._dict] +\
-               [(k, other._dict[k]) for k in other._dict]
-        return MyDict(*args)
+        return MyDict(**self._dict, **other._dict)
 
     def get(self, key, default=None):
-        # for k in self._dict:
-        #     if k == key:
-        #         return self._dict[k]
-        # return default
-
         try:
             value = self._dict[key]
         except KeyError:
@@ -32,8 +22,7 @@ class MyDict:
         return value
 
     def items(self):
-        # return [(k, v) for k, v in enumerate(self._dict)]
-        return [(k, self._dict[k]) for k in self._dict]
+        return [(k, v) for k, v in enumerate(self._dict)]
 
     def keys(self):
         return [k for k in self._dict]

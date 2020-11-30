@@ -13,14 +13,17 @@ class MyList:
         return str(self._list)
 
     def __add__(self, other):
-        args = tuple(self._list + other._list)
+        args = self._list + other._list
         return MyList(*args)
 
     def pop(self, index=None):
         if index is None:
+            value = self._list[-1:]
             del self._list[-1:]
         else:
+            value = self._list[index]
             del self._list[index]
+        return value
 
     def append(self, value):
         self._list[len(self._list):] = [value]
@@ -31,18 +34,10 @@ class MyList:
         self._list = start + [value] + end
 
     def remove(self, value):
-        # for i, v in enumerate(self._list):
-        #     if v == value:
-        #         del self._list[i]
-        #         return v
-
-        counter = 0
-        for v in self._list:
+        for i, v in enumerate(self._list):
             if v == value:
-                del self._list[counter]
+                del self._list[i]
                 return v
-            else:
-                counter += 1
 
         raise ValueError(f'{value} - отсутствует в списке')
 
